@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蕭公子的世界 - 資源導航網頁</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardBg: '#111827',
+                        cardHover: '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 3px;
+        }
+        .card-hover {
+            transition: all 0.25s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-3px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .sidebar-active {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.1));
+            border-left: 4px solid #3b82f6;
+            color: #60a5fa;
+        }
+        .main-container {
+            display: flex !important;
+            flex-direction: row !important;
+            height: calc(100vh - 80px);
+            width: 100%;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 240px;
+            height: 100%;
+            background-color: #111827;
+            border-right: 1px solid #1f2937;
+            flex-shrink: 0;
+            overflow-y: auto;
+            padding: 16px;
+        }
+        .nav-list {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 8px;
+        }
+        .content-area {
+            flex-grow: 1;
+            padding: 30px;
+            overflow-y: auto !important;
+            height: 100%;
+            background-color: #0b0f19;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+    </style>
+</head>
+<body class="selection:bg-blue-500 selection:text-white">
+
+    <!-- Header 區域 -->
+    <header class="h-[80px] border-b border-gray-800 bg-[#0b0f19]/90 backdrop-blur z-50 px-6 flex items-center justify-between shrink-0">
+        <div class="flex items-center space-x-3">
+            <span class="text-2xl select-none" role="img" aria-label="Logo">🫳🌍</span>
+            <h1 class="text-xl font-bold tracking-wide gradient-text">蕭公子的世界</h1>
+        </div>
+        <div class="hidden sm:flex items-center space-x-3 bg-gray-900 border border-gray-800 px-4 py-1.5 rounded-full text-xs text-gray-300 shadow-inner">
+            <span id="date" class="font-medium">--/--/----</span>
+            <span class="text-gray-700">|</span>
+            <span id="time" class="font-mono font-semibold text-blue-400">00:00:00</span>
+            <span class="text-gray-700">|</span>
+            <span>🌤️ 香港 24°C</span>
+        </div>
+    </header>
+
+    <!-- 主體雙欄容器 -->
+    <div class="main-container">
+        
+        <!-- 左側側邊欄 -->
+        <aside class="sidebar select-none">
+            <nav class="nav-list">
+                <button onclick="switchTab('creation')" id="btn-creation" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
+                    <span class="text-base">🚀</span>
+                    <span>個人創作</span>
+                </button>
+                <button onclick="switchTab('novel')" id="btn-novel" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
+                    <span class="text-base">📚</span>
+                    <span>網文</span>
+                </button>
+                <button onclick="switchTab('game')" id="btn-game" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
+                    <span class="text-base">🎮</span>
+                    <span>遊戲</span>
+                </button>
+                <button onclick="switchTab('ai')" id="btn-ai" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
+                    <span class="text-base">🧠</span>
+                    <span>AI</span>
+                </button>
+                <button onclick="switchTab('software')" id="btn-software" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
+                    <span class="text-base">🛠️</span>
+                    <span>軟件</span>
+                </button>
+                <button onclick="switchTab('media')" id="btn-media" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
+                    <span class="text-base">🎬</span>
+                    <span>影音</span>
+                </button>
+                <button onclick="switchTab('adult')" id="btn-adult" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
+                    <span class="text-base">🔞</span>
+                    <span>成人</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- 右側內容區 -->
+        <main class="content-area">
+            <div class="max-w-7xl mx-auto" id="content-container">
+                <!-- 動態載入內容 -->
+            </div>
+        </main>
+    </div>
+
+    <!-- 完整互動腳本 -->
+    <script>
+        // 即時時鐘與日期更新
+        function updateClock() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const dateEl = document.getElementById('date');
+            const timeEl = document.getElementById('time');
+            if (dateEl) dateEl.textContent = `${year}/${month}/${day}`;
+            if (timeEl) timeEl.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // 核心數據結構
+        const dataStore = {
+            creation: {
+                title: "🚀 個人創作",
+                sections: [
+                    {
+                        name: "我的專案清單",
+                        items: [
+                            { title: "購物價格紀錄", url: "https://price-app-zeta.vercel.app", desc: "紀錄貨物的價格、店舖和容量、加入想買的貨物名稱。" },
+                            { title: "每日新聞 & 金融市場儀表板", url: "https://daily-morning-news.vercel.app", desc: "每天早上搜尋有興趣的新聞、金融和外匯。" },
+                            { title: "股票資料自動更新", url: "", desc: "第三個專案：準備建立自動更新股票資料。", status: "dev" }
+                        ]
+                    }
+                ]
+            },
+            novel: {
+                title: "📚 網文",
+                hasFilter: true,
+                sections: [
+                    {
+                        category: "網文網站",
+                        items: [
+                            { title: "69書吧", url: "https://www.69shuba.com/", desc: "提供最新最熱網絡小說，無彈窗小說閱讀，最新章節閱讀，全文閱讀，無錯小說閱讀。" },
+                            { title: "稷下書院", url: "https://www.novel543.com/", desc: "提供免費小說，小說排行榜，小說線上閱讀，小說下載。" },
+                            { title: "UU看書", url: "https://uukanshu.cc/", desc: "是一家提供免費小說閱讀的網站與TXT全集下載服務。" }
+                        ]
+                    },
+                    {
+                        category: "網文下載站",
+                        items: [
+                            { title: "Z-Library", url: "https://tw.z-library.sk/", desc: "是一個線上數位圖書館，你可以存取並閱讀其他數位資源，如電子書、期刊、有聲書等。" }
+                        ]
+                    },
+                    {
+                        category: "輕小說網站",
+                        items: [
+                            { title: "暫無內容", url: "", desc: "此分類目前暫無收錄網站資源，敬請期待。", status: "empty" }
+                        ]
+                    },
+                    {
+                        category: "H-文網站",
+                        items: [
+                            { title: "暫無內容", url: "", desc: "此分類目前暫無收錄網站資源，敬請期待。", status: "empty" }
+                        ]
+                    }
+                ]
+            },
+            game: {
+                title: "🎮 遊戲",
+                sections: [
+                    {
+                        name: "遊戲網站",
+                        items: [
+                            { title: "Steam", url: "https://store.steampowered.com/", desc: "Steam是Valve推出的電子遊戲數位分發平台，提供自動更新與社群聊天功能。" }
+                        ]
+                    },
+                    {
+                        name: "遊戲攻略",
+                        items: [
+                            { title: "GameKee", url: "https://www.gamekee.com/", desc: "致力於為好遊戲提供wiki百科和情報攻略。" },
+                            { title: "巴哈姆特", url: "https://www.gamer.com.tw/", desc: "新手入門＆老手玩家實用文章總整理：遊戲介紹 - 哈啦區。" }
+                        ]
+                    },
+                    {
+                        name: "H-Game",
+                        items: [
+                            { title: "ACG游戲姬", url: "https://www.52acgyxj.com/", desc: "精選日式與歐美動漫風格成人遊戲資源交流。" },
+                            { title: "PornGames hub", url: "https://porngameshub.com/updated", desc: "提供全球最新動態更新的歐美與各類成人遊戲庫。" }
+                        ]
+                    },
+                    {
+                        name: "H-Game攻略",
+                        items: [
+                            { title: "SCRIBD", url: "https://www.scribd.com/", desc: "線上電子文檔分享平台，常包含各類遊戲深入研究與讀物。" },
+                            { title: "Media Clip", url: "https://www.mediaclip.jp/", desc: "日式H-GAME網站，全面介紹遊戲內容、專業攻略及存檔分享。" }
+                        ]
+                    }
+                ]
+            },
+            ai: {
+                title: "🧠 AI",
+                sections: [
+                    {
+                        name: "網上 AI 助理",
+                        items: [
+                            { title: "GROK", url: "https://grok.com/", desc: "由 xAI 開發的助理。可聊天、創作圖片、撰寫程式碼並獲取即時答案。" },
+                            { title: "Muse", url: "https://www.muse.com/l", desc: "專注於多模態與高效率創作的智能 AI 工具。" },
+                            { title: "Google AI", url: "https://www.google.com", desc: "Google 旗下的前沿人工智慧研究成果與搜尋整合門戶。" },
+                            { title: "Gemini", url: "https://gemini.google.com/", desc: "Google 的多模態 AI 助理。獲得寫作、規劃、生成式代碼開發等協助。" },
+                            { title: "Microsoft Copilot", url: "https://copilot.com/", desc: "專為協助完成日常任務而打造，支援聊天、創造、學習與問題解決。" },
+                            { title: "DeepSeek", url: "https://www.deepseek.com/", desc: "專注於打造領先通用人工智慧，開發並開源前沿大型模型（LLM）。" }
+                        ]
+                    },
+                    {
+                        name: "創意媒體",
+                        items: [
+                            { title: "AI-影片創作", url: "", desc: "預留空白卡片，探索 AI 影片生成與剪輯應用。", status: "empty" },
+                            { title: "AI-相片創作", url: "", desc: "預留空白卡片，探索 AI 圖像生成與修圖技術。", status: "empty" },
+                            { title: "AI-文章創作", url: "", desc: "預留空白卡片，探索 AI 文字創作與自動化寫作。", status: "empty" }
+                        ]
+                    }
+                ]
+            },
+            software: {
+                title: "🛠️ 軟件",
+                sections: [
+                    {
+                        name: "介紹和新聞",
+                        items: [
+                            { title: "零度部落格", url: "https://www.freedidi.com/", desc: "分享科學上網、實用軟件資源以及前沿科技資訊的極客網站。" },
+                            { title: "零度解說", url: "https://www.youtube.com/@lingdujieshuo", desc: "高質量的影音頻道，專注於網路技術、黑科技軟件與 VPS 教程。" },
+                            { title: "電腦王阿達", url: "https://www.kocpc.com.tw/", desc: "最專業的3C數位產品開箱、科技新聞和實用 APP 評測網站。" }
+                        ]
+                    }
+                ]
+            },
+            media: {
+                title: "🎬 影音",
+                sections: [
+                    {
+                        name: "線上影音平台",
+                        items: [
+                            { title: "YouTube", url: "https://www.youtube.com/", desc: "全球最大的影片分享與串流平台，涵蓋豐富全面的各類影音。" },
+                            { title: "bilibili", url: "https://www.bilibili.com/", desc: "知名的在線彈幕視頻網站，擁有絕佳的 ACG 氛圍與多元內容。" }
+                        ]
+                    }
+                ]
+            },
+            adult: {
+                title: "🔞 成人",
+                sections: [
+                    {
+                        name: "矽膠情趣藝術",
+                        items: [
+                            { title: "KD人形美術館", url: "https://www.youtube.com/@kd-doll", desc: "台灣唯一矽膠人形主題咖啡館的影音頻道，介紹實體與藝術。" },
+                            { title: "KD人形美術館官網", url: "https://kd-doll.com/", desc: "官方網站門戶，獲取最新的實體玩偶主題活動與詳細情報。" }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        let currentTab = 'creation';
+        let currentFilter = '全部';
+
+        function switchTab(tabKey) {
+            currentTab = tabKey;
+            currentFilter = '全部';
+
+            document.querySelectorAll('.sidebar-btn').forEach(btn => {
+                btn.classList.remove('sidebar-active');
+            });
+            const activeBtn = document.getElementById(`btn-${tabKey}`);
+            if (activeBtn) activeBtn.classList.add('sidebar-active');
+
+            renderContent();
+        }
+
+        function filterNovel(category) {
+            currentFilter = category;
+            renderContent();
+        }
+
+        function renderContent() {
+            const container = document.getElementById('content-container');
+            const data = dataStore[currentTab];
+            if (!data) return;
+
+            let html = `
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-white tracking-tight">${data.title}</h2>
+                    <div class="w-12 h-1 bg-blue-500 rounded-full mt-2"></div>
+                </div>
+            `;
+
+            if (data.hasFilter) {
+                const filters = ['全部', '網文網站', '網文下載站', '輕小說網站', 'H-文網站'];
+                html += `<div class="flex flex-wrap gap-2 mb-6">`;
+                filters.forEach(f => {
+                    const active = currentFilter === f;
+                    const btnClass = active ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white';
+                    html += `<button onclick="filterNovel('${f}')" class="px-4 py-2 rounded-lg text-xs font-medium transition-all ${btnClass}">${f}</button>`;
+                });
+                html += `</div>`;
+            }
+
+            data.sections.forEach(section => {
+                if (data.hasFilter && currentFilter !== '全部' && section.category !== currentFilter && section.name !== currentFilter) {
+                    return;
+                }
+                const sectionTitle = section.name || section.category;
+
+                html += `
+                    <div class="mb-8 section-group" data-category="${sectionTitle}">
+                        <h3 class="text-base font-semibold text-gray-300 mb-4 flex items-center space-x-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                            <span>${sectionTitle}</span>
+                        </h3>
+                        <div class="card-grid">
+                `;
+
+                section.items.forEach(item => {
+                    if (item.status === 'dev') {
+                        html += `
+                            <div class="bg-gray-900/40 border-2 border-dashed border-gray-700 rounded-xl p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="font-bold text-base text-gray-200">${item.title}</h4>
+                                        <span class="px-2 py-0.5 rounded text-[10px] bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">項目開發中</span>
+                                    </div>
+                                    <p class="text-xs text-gray-400 leading-relaxed">${item.desc}</p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-gray-800 text-[11px] text-gray-500 italic">準備建置中</div>
+                            </div>
+                        `;
+                    } else if (item.status === 'empty') {
+                        html += `
+                            <div class="bg-gray-900/40 border-2 border-dashed border-gray-700 rounded-xl p-5 flex flex-col justify-between opacity-80">
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="font-bold text-base text-gray-400">${item.title}</h4>
+                                        <span class="px-2 py-0.5 rounded text-[10px] bg-gray-800 text-gray-400 border border-gray-700">暫無內容</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500 leading-relaxed">${item.desc}</p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-gray-800 text-[11px] text-gray-600">敬請期待</div>
+                            </div>
+                        `;
+                    } else {
+                        html += `
+                            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="bg-[#111827] border border-gray-800 rounded-xl p-5 card-hover flex flex-col justify-between group block">
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="font-bold text-base text-gray-100 group-hover:text-blue-400 transition-colors">${item.title}</h4>
+                                        <span class="text-xs text-gray-500 group-hover:text-blue-400 transition-colors">↗</span>
+                                    </div>
+                                    <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">${item.desc}</p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-[11px] text-gray-500 font-mono">
+                                    <span class="truncate max-w-[180px]">${item.url}</span>
+                                    <span class="text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">訪問</span>
+                                </div>
+                            </a>
+                        `;
+                    }
+                });
+
+                html += `</div></div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // 初始化
+        switchTab('creation');
+    </script>
+</body>
+</html>
