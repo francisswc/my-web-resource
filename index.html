@@ -126,6 +126,10 @@
                     <span class="text-base">📚</span>
                     <span>網文</span>
                 </button>
+                <button onclick="switchTab('anime')" id="btn-anime" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
+                    <span class="text-base">🎨</span>
+                    <span>動漫</span>
+                </button>
                 <button onclick="switchTab('game')" id="btn-game" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
                     <span class="text-base">🎮</span>
                     <span>遊戲</span>
@@ -145,6 +149,10 @@
                 <button onclick="switchTab('adult')" id="btn-adult" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
                     <span class="text-base">🔞</span>
                     <span>成人</span>
+                </button>
+                <button onclick="switchTab('special')" id="btn-special" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
+                    <span class="text-base">⭐</span>
+                    <span>特別</span>
                 </button>
             </nav>
         </aside>
@@ -199,25 +207,74 @@
                         items: [
                             { title: "69書吧", url: "https://www.69shuba.com/", desc: "提供最新最熱網絡小說，無彈窗小說閱讀,最新章節閱讀，全文閱讀，無錯小說閱讀。" },
                             { title: "稷下書院", url: "https://www.novel543.com/", desc: "提供免費小說，小說排行榜，小說線上閱讀，小說下載" },
-                            { title: "UU看書", url: "https://uukanshu.cc/", desc: "是一家提供免費小說閱讀的網站與TXT全集下載服務。" }
+                            { title: "UU看書", url: "https://uukanshu.cc/", desc: "是一家提供免費小說閱讀的網站與TXT全集下載服務。" },
+                            { title: "知軒藏書(副站)", url: "https://www.zxcs.click/", desc: "知軒藏書備用副站資源。" }
+                        ]
+                    },
+                    {
+                        category: "電子書下載站",
+                        items: [
+                            { title: "Z-Library", url: "https://tw.z-library.sk/", desc: "是一個線上數位圖書館，你可以存取並閱讀其他數位資源，如電子書、期刊、有聲書、電影等。" },
+                            { title: "EYNY伊莉討論區", url: "https://www54.eyny.com/forum-1982-1.html", desc: "伊莉討論區電子書下載專區。" }
                         ]
                     },
                     {
                         category: "網文下載站",
                         items: [
-                            { title: "Z-Library", url: "https://tw.z-library.sk/", desc: "是一個線上數位圖書館，你可以存取並閱讀其他數位資源，如電子書、期刊、有聲書、電影等。" }
+                            { title: "Z-Library", url: "https://tw.z-library.sk/", desc: "是一個線上數位圖書館，你可以存取並閱讀其他數位資源，如電子書、期刊、有聲書、電影等。" },
+                            { title: "愛下電子書", url: "https://ixdzs.tw/", desc: "提供熱門排行榜，分類榜單小說的在線閱讀，一起享受極致閱讀樂趣。" },
+                            { title: "EYNY伊莉討論區", url: "https://www54.eyny.com/forum-3752-1.html", desc: "伊莉討論區相關網文分享與下載。" },
+                            { title: "Bookdown TXT圖書下載網", url: "http://www.bookshuku.org/txt/0_0_0_0_default_0_1.html", desc: "提供豐富的TXT圖書下載服務。" },
+                            { title: "魔爪閱讀網", url: "http://www.gdyunlan.com/", desc: "魔爪閱讀網在線閱讀與下載。" },
+                            { title: "愛暗小說網", url: "https://tw.aianbook.com/", desc: "愛暗小說網免費小說閱讀。" },
+                            { title: "TXT小說網站", url: "https://www.txt520.com/", desc: "TXT小說下載專區。" },
+                            { title: "精校吧", url: "https://www.jingjiaoba.com/", desc: "免費精校小說-校對全本TXT小說下載網" },
+                            { title: "有書網", url: "https://www.youshuw.com/", desc: "有書網免費小說閱讀與分享。" },
+                            { title: "每日小說", url: "https://www.daily-novel.net/", desc: "每日更新小說內容與閱讀。" },
+                            { title: "知軒藏書", url: "https://zxcs.zip/", desc: "知軒藏書主站下載。" },
+                            { title: "知軒藏書(副站)", url: "https://www.zxcs.live/", desc: "知軒藏書另一個副站點。" },
+                            { title: "賊吧網", url: "https://m.zei8.vip/", desc: "賊吧網手機與網頁端小說下載。" }
                         ]
                     },
                     {
                         category: "輕小說網站",
                         items: [
-                            { title: "暫無內容", url: "", desc: "此分類目前暫無收錄網站資源，敬請期待。", status: "empty" }
+                            { title: "知軒藏書", url: "https://www.zxcs.info/", desc: "知軒藏書相關網域與輕小說資源。" },
+                            { title: "輕之國度", url: "https://www.lightnovel.fun/cn", desc: "專注分享的NACG社群，提供輕小說搜索、分類、排行、作品詳情與閱讀體驗。" }
                         ]
                     },
                     {
                         category: "H-文網站",
                         items: [
-                            { title: "暫無內容", url: "", desc: "此分類目前暫無收錄網站資源，敬請期待。", status: "empty" }
+                            { title: "EYNY伊莉討論區", url: "https://www54.eyny.com/forum-6-1.html", desc: "伊莉成人小說與H文專區。" },
+                            { title: "色情小說", url: "https://yazhouse8.com/ZZ4o2.htm", desc: "成人色情小說在線閱讀。" },
+                            { title: "星星小說", url: "https://100606.xyz/category.php?cid=5", desc: "成人小說分類閱讀。" },
+                            { title: "撢天記", url: "https://www.23opa.com/e/action/ListInfo/?classid=5", desc: "成人情色文學分享。" },
+                            { title: "18AV", url: "https://18av.mm-cg.com/zh/novel_random/all/index.html", desc: "成人小說隨機推薦與閱讀。" }
+                        ]
+                    },
+                    {
+                        category: "APP / Software",
+                        items: [
+                            { title: "ReadEra", url: "https://readera.org/", desc: "是一款免費、無廣告、無需註冊的多功能電子書與文件閱讀器應用程式(Android $ Mac)。" },
+                            { title: "Calibre", url: "https://calibre-ebook.com/zh_TW", desc: "是一款功能強大且易於使用的電子書管理器。 (Windows、Mac、可攜式版)" }
+                        ]
+                    }
+                ]
+            },
+            anime: {
+                title: "🎨 動漫",
+                sections: [
+                    {
+                        category: "閱讀網站",
+                        items: [
+                            { title: "看漫畫", url: "https://m.manhuagui.com/", desc: "線上漫畫閱讀與追番平台。" }
+                        ]
+                    },
+                    {
+                        category: "討論區 / 下載",
+                        items: [
+                            { title: "EYNY伊莉討論區", url: "https://www54.eyny.com/forum.php?gid=206", desc: "伊莉動漫討論與資源下載區。" }
                         ]
                     }
                 ]
@@ -243,6 +300,12 @@
                         items: [
                             { title: "ACG游戲姬", url: "https://www.52acgyxj.com/", desc: "精選日式與歐美動漫風格成人遊戲資源交流。" },
                             { title: "PornGames hub", url: "https://porngameshub.com/updated", desc: "提供全球最新動態更新的歐美與各類成人遊戲庫。" },
+                            { title: "JKF", url: "https://jkforum.net/p/forum-1407-1.html", desc: "論壇成人遊戲分享與討論。" },
+                            { title: "i社遊戲", url: "https://www.isheishe.com/", desc: "ILLUSION官網遊戲下載" },
+                            { title: "HGAME分享平台", url: "https://hgamefree.info/tag/illusion", desc: "Illusion及各類HGAME分享。" },
+                            { title: "維咔VikaCG", url: "https://www.vikacg.com/post", desc: "VikaCG成人遊戲資源與資訊。" },
+                            { title: "ACG次元網", url: "https://www.acgy.net/", desc: "二次元與成人遊戲資源交流。" },
+                            { title: "EYNY伊莉討論區", url: "https://www54.eyny.com/forum-48-1.html", desc: "伊莉成人遊戲下載區。" },
                             { title: "91紳士資源", url: "https://91kds.me/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90", desc: "91紳士遊戲與動漫娛樂資源分類。" },
                             { title: "MG成人遊戲", url: "https://www.jkforum.net/p/forum-1407-1.html", desc: "論壇精選成人遊戲討論與下載分享。" },
                             { title: "MAMBA", url: "https://mamba-games.com/?s=BAD+BOBBY+SAGA", desc: "成人單機與互動遊戲專題。" },
@@ -328,11 +391,42 @@
                 title: "🎬 影音",
                 sections: [
                     {
-                        name: "線上影音平台",
+                        name: "影視網站",
                         items: [
                             { title: "Youtube", url: "https://www.youtube.com/", desc: "全球最大的影片分享與串流平台，涵蓋豐富全面的各類影音。" },
                             { title: "bilibili", url: "https://www.bilibili.com/", desc: "是國內知名的在線視頻彈幕網站，擁有最棒的ACG氛圍，嗶哩嗶哩內容豐富多元，" },
-                            { title: "KVideo", url: "https://kvideo-861.pages.dev/", desc: "視頻聚合平台" }
+                            { title: "KVideo", url: "https://kvideo-861.pages.dev/", desc: "視頻聚合平台" },
+                            { title: "快看影視", url: "https://pdziyuan.com/", desc: "在線熱播片庫" }
+                        ]
+                    },
+                    {
+                        name: "影視TV",
+                        items: [
+                            { title: "EYNY伊莉討論區", url: "https://www54.eyny.com/forum.php?gid=332", desc: "伊莉影視TV與相關影片分享區。" }
+                        ]
+                    },
+                    {
+                        name: "字幕",
+                        items: [
+                            { title: "SHOOTER(偽)射手網", url: "https://2.assrt.net/", desc: "字幕分享下載平台。" },
+                            { title: "射手網", url: "https://shooter.cn/", desc: "經典射手網字幕服務。" },
+                            { title: "PotPlayer自動生成字幕", url: "https://www.hk01.com/%E5%AF%A6%E7%94%A8%E6%95%99%E5%AD%B8/60277211/potplayer%E8%83%BD%E8%81%BD%E6%87%82%E5%A4%96%E8%AA%9E%E7%89%87-%E5%85%8D%E8%B2%BBai%E5%AD%97%E5%B9%95%E7%94%9F%E6%88%90%E5%8F%8A%E5%8D%B3%E6%99%82%E7%BF%BB%E8%AD%AF-%E7%9D%87%E7%89%87%E7%84%A1%E9%9A%9C%E7%A4%99", desc: "免費AI字幕生成及即時翻譯" },
+                            { title: "PotPlayer自動生成字幕", url: "https://www.bilibili.com/video/BV1LXE1zJEAJ/", desc: "一鍵生成日語愛情動作片字幕" }
+                        ]
+                    },
+                    {
+                        name: "播放",
+                        items: [
+                            { title: "PotPlayer 播放列表", url: "https://www.cnblogs.com/xiaohi/p/15835047.html", desc: "將同個文件夾內的視頻自動加載到播放列表" },
+                            { title: "音樂播放器教學", url: "https://www.youtube.com/watch?v=i701saH1100", desc: "Foobar2000免費提升音質| 內置轉檔還可以直接抓Youtube?!" },
+                            { title: "Foobar2000 設定教學", url: "https://lingyinaudio.com/foobar2000-setting-windows-experience-best-sound/", desc: "Foobar2000 設定教學與最佳化指南。" }
+                        ]
+                    },
+                    {
+                        name: "APP / Software",
+                        items: [
+                            { title: "Potplayer", url: "https://potplayer.tv/?lang=zh_TW", desc: "Potplayer 影音播放器官網下載。" },
+                            { title: "Foobar2000", url: "https://www.foobar2000.org/", desc: "是一款先進的免費音訊播放器。" }
                         ]
                     }
                 ]
@@ -344,7 +438,28 @@
                         name: "矽膠情趣藝術",
                         items: [
                             { title: "KD人形美術館", url: "https://www.youtube.com/@kd-doll", desc: "台灣唯一矽膠人形主題咖啡館" },
-                            { title: "KD人形美術館官網", url: "https://kd-doll.com/", desc: "官方網站門戶，獲取最新的實體玩偶主題活動與詳細情報。" }
+                            { title: "KD人形美術館官網", url: "https://kd-doll.com/", desc: "官方網站門戶，獲取最新的實體玩偶主題活動與詳細情報。" },
+                            { title: "JKF", url: "https://www.jkforum.net/", desc: "JKF論壇與成人綜合討論區。" },
+                            { title: "WAHAS", url: "https://wap01.wahas.com/", desc: "WAHAS成人社群與交流平台。" },
+                            { title: "草榴社區", url: "https://t66y.com/index.php", desc: "草榴社區技術與成人資源交流。" },
+                            { title: "SouthPlus", url: "https://www.south-plus.net/index.php", desc: "SouthPlus 南+ 論壇成人互動區。" },
+                            { title: "EYNY伊莉討論區", url: "https://www54.eyny.com/forum.php?gid=333", desc: "伊莉成人綜合討論區。" },
+                            { title: "18AV", url: "https://18av.mm-cg.com/", desc: "成人影音與娛樂資源分享。" }
+                        ]
+                    }
+                ]
+            },
+            special: {
+                title: "⭐ 特別",
+                sections: [
+                    {
+                        name: "特別推薦",
+                        items: [
+                            { title: "低價註冊 .com-1", url: "https://www.youtube.com/watch?v=wWqbL-CnHFg", desc: "每年僅需11元！可託管至Cloudflare" },
+                            { title: "低價註冊 .com-2", url: "https://www.youtube.com/watch?v=pFL47GTPYx8", desc: "Google官方羊毛+Cloudflare無縫託管教程" },
+                            { title: "低價註冊 .com-3", url: "https://www.youtube.com/watch?v=PNuhS_3khvw", desc: ".com域名10塊錢?關鍵續費一樣價!!!" },
+                            { title: "零成本“個人資源庫”", url: "https://www.youtube.com/watch?v=KukkhtBmqZw", desc: "10分鐘！GitHub Vercel 保姆級教程，有手就懂！" },
+                            { title: "“個人資源庫”圖文版", url: "https://www.nuan1145.eu.cc/archives/wei-ming-ming-wen-zhang-IniUlK2z", desc: "圖文詳細教學說明。" }
                         ]
                     }
                 ]
@@ -385,7 +500,7 @@
             `;
 
             if (data.hasFilter) {
-                const filters = ['全部', '網文網站', '網文下載站', '輕小說網站', 'H-文網站'];
+                const filters = ['全部', '網文網站', '電子書下載站', '網文下載站', '輕小說網站', 'H-文網站', 'APP / Software'];
                 html += `<div class="flex flex-wrap gap-2 mb-6">`;
                 filters.forEach(f => {
                     const active = currentFilter === f;
