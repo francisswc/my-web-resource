@@ -159,7 +159,6 @@
 
     <!-- 完整互動腳本 -->
     <script>
-        // 即時時鐘與日期更新
         function updateClock() {
             const now = new Date();
             const year = now.getFullYear();
@@ -177,7 +176,6 @@
         setInterval(updateClock, 1000);
         updateClock();
 
-        // 核心數據結構
         const dataStore = {
             creation: {
                 title: "🚀 個人創作",
@@ -186,8 +184,8 @@
                         name: "我的專案清單",
                         items: [
                             { title: "購物價格紀錄", url: "https://price-app-zeta.vercel.app", desc: "紀錄貨物的價格、店舖和容量、加入想買的貨物名稱。" },
-                            { title: "每日新聞 & 金融市場儀表板", url: "https://daily-morning-news.vercel.app", desc: "每天早上搜尋有興趣的新聞、金融和外匯。" },
-                            { title: "股票資料自動更新", url: "", desc: "第三個專案：準備建立自動更新股票資料。", status: "dev" }
+                            { title: "每日新聞 & 金融市場儀表板", url: "https://daily-morning-news.vercel.app", desc: "每天早上搜尋有興趣的新聞、金融和外匯" },
+                            { title: "股票資料自動更新", url: "", desc: "第三個是準備建立自動更新股票資料", status: "dev" }
                         ]
                     }
                 ]
@@ -199,15 +197,15 @@
                     {
                         category: "網文網站",
                         items: [
-                            { title: "69書吧", url: "https://www.69shuba.com/", desc: "提供最新最熱網絡小說，無彈窗小說閱讀，最新章節閱讀，全文閱讀，無錯小說閱讀。" },
-                            { title: "稷下書院", url: "https://www.novel543.com/", desc: "提供免費小說，小說排行榜，小說線上閱讀，小說下載。" },
+                            { title: "69書吧", url: "https://www.69shuba.com/", desc: "提供最新最熱網絡小說，無彈窗小說閱讀,最新章節閱讀，全文閱讀，無錯小說閱讀。" },
+                            { title: "稷下書院", url: "https://www.novel543.com/", desc: "提供免費小說，小說排行榜，小說線上閱讀，小說下載" },
                             { title: "UU看書", url: "https://uukanshu.cc/", desc: "是一家提供免費小說閱讀的網站與TXT全集下載服務。" }
                         ]
                     },
                     {
                         category: "網文下載站",
                         items: [
-                            { title: "Z-Library", url: "https://tw.z-library.sk/", desc: "是一個線上數位圖書館，你可以存取並閱讀其他數位資源，如電子書、期刊、有聲書等。" }
+                            { title: "Z-Library", url: "https://tw.z-library.sk/", desc: "是一個線上數位圖書館，你可以存取並閱讀其他數位資源，如電子書、期刊、有聲書、電影等。" }
                         ]
                     },
                     {
@@ -230,28 +228,33 @@
                     {
                         name: "遊戲網站",
                         items: [
-                            { title: "Steam", url: "https://store.steampowered.com/", desc: "Steam是Valve推出的電子遊戲數位分發平台，提供自動更新與社群聊天功能。" }
+                            { title: "Steam", url: "https://store.steampowered.com/", desc: "Steam是Valve推出的電子遊戲數位分發平台，為使用者提供自動更新遊戲、遊戲存檔雲端儲存和好友列表和聊天在內的社群功能。" }
                         ]
                     },
                     {
-                        name: "遊戲攻略",
+                        name: "遊戲攻略網站",
                         items: [
-                            { title: "GameKee", url: "https://www.gamekee.com/", desc: "致力於為好遊戲提供wiki百科和情報攻略。" },
-                            { title: "巴哈姆特", url: "https://www.gamer.com.tw/", desc: "新手入門＆老手玩家實用文章總整理：遊戲介紹 - 哈啦區。" }
+                            { title: "GameKee（簡稱K站）", url: "https://www.gamekee.com/", desc: "致力於為好遊戲提供wiki百科和情報攻略，" },
+                            { title: "巴哈姆特", url: "https://www.gamer.com.tw/", desc: "新手入門＆老手玩家實用文章總整理：遊戲介紹 - 哈啦區" }
                         ]
                     },
                     {
                         name: "H-Game",
                         items: [
                             { title: "ACG游戲姬", url: "https://www.52acgyxj.com/", desc: "精選日式與歐美動漫風格成人遊戲資源交流。" },
-                            { title: "PornGames hub", url: "https://porngameshub.com/updated", desc: "提供全球最新動態更新的歐美與各類成人遊戲庫。" }
+                            { title: "PornGames hub", url: "https://porngameshub.com/updated", desc: "提供全球最新動態更新的歐美與各類成人遊戲庫。" },
+                            { title: "91紳士資源", url: "https://91kds.me/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90", desc: "91紳士遊戲與動漫娛樂資源分類。" },
+                            { title: "MG成人遊戲", url: "https://www.jkforum.net/p/forum-1407-1.html", desc: "論壇精選成人遊戲討論與下載分享。" },
+                            { title: "MAMBA", url: "https://mamba-games.com/?s=BAD+BOBBY+SAGA", desc: "成人單機與互動遊戲專題。" },
+                            { title: "紳士遊戲 (永久防迷路)", url: "https://sway.cloud.microsoft/0lO4vwfWgPXfIjLk/", desc: "永久防迷路紳士遊戲導航頁面。" },
+                            { title: "Incest Games", url: "https://incestgames.net/category/incestgames/", desc: "歐美成人視覺小說與互動遊戲合集。" }
                         ]
                     },
                     {
-                        name: "H-Game攻略",
+                        name: "H-Game攻略網站",
                         items: [
                             { title: "SCRIBD", url: "https://www.scribd.com/", desc: "線上電子文檔分享平台，常包含各類遊戲深入研究與讀物。" },
-                            { title: "Media Clip", url: "https://www.mediaclip.jp/", desc: "日式H-GAME網站，全面介紹遊戲內容、專業攻略及存檔分享。" }
+                            { title: "Media Clip", url: "https://www.mediaclip.jp/", desc: "日式H-GAME網站, 介紹遊戲內容、攻略、儲存檔案。" }
                         ]
                     }
                 ]
@@ -262,12 +265,12 @@
                     {
                         name: "網上 AI 助理",
                         items: [
-                            { title: "GROK", url: "https://grok.com/", desc: "由 xAI 開發的助理。可聊天、創作圖片、撰寫程式碼並獲取即時答案。" },
+                            { title: "GROK", url: "https://grok.com/", desc: "是由 SpaceXAI 開發的 AI 助理。聊天、創作圖片、撰寫程式碼，並從網路和 X 獲得即時答案。" },
                             { title: "Muse", url: "https://www.muse.com/l", desc: "專注於多模態與高效率創作的智能 AI 工具。" },
                             { title: "Google AI", url: "https://www.google.com", desc: "Google 旗下的前沿人工智慧研究成果與搜尋整合門戶。" },
-                            { title: "Gemini", url: "https://gemini.google.com/", desc: "Google 的多模態 AI 助理。獲得寫作、規劃、生成式代碼開發等協助。" },
-                            { title: "Microsoft Copilot", url: "https://copilot.com/", desc: "專為協助完成日常任務而打造，支援聊天、創造、學習與問題解決。" },
-                            { title: "DeepSeek", url: "https://www.deepseek.com/", desc: "專注於打造領先通用人工智慧，開發並開源前沿大型模型（LLM）。" }
+                            { title: "Gemini", url: "https://gemini.google.com/", desc: "Google 的 AI 助理。獲得寫作,規劃,腦力激盪等協助。體驗生成式人工智慧的力量。" },
+                            { title: "Microsoft Copilot", url: "https://copilot.com/", desc: "是專為協助你完成任務而打造的 AI。用 AI 聊天創造、腦力激盪、學習並解決問題，讓它能在你一天中運作。" },
+                            { title: "DeepSeek", url: "https://www.deepseek.com/", desc: "是一家專注於打造世界領先通用人工智慧的人工智慧研究公司。我們開發並開源前沿大型語言模型。" }
                         ]
                     },
                     {
@@ -288,7 +291,35 @@
                         items: [
                             { title: "零度部落格", url: "https://www.freedidi.com/", desc: "分享科學上網、實用軟件資源以及前沿科技資訊的極客網站。" },
                             { title: "零度解說", url: "https://www.youtube.com/@lingdujieshuo", desc: "高質量的影音頻道，專注於網路技術、黑科技軟件與 VPS 教程。" },
-                            { title: "電腦王阿達", url: "https://www.kocpc.com.tw/", desc: "最專業的3C數位產品開箱、科技新聞和實用 APP 評測網站。" }
+                            { title: "電腦王阿達", url: "https://www.kocpc.com.tw/", desc: "最專業的3C產品和APP評測網站" }
+                        ]
+                    },
+                    {
+                        name: "教學",
+                        items: [
+                            { title: "技能加點", url: "https://skilladd.org/", desc: "技術學習與知識技能加點指南。" }
+                        ]
+                    },
+                    {
+                        name: "軟件下載",
+                        items: [
+                            { title: "阿榮福利味", url: "https://www.azofreeware.com/", desc: "實用免安裝與共用軟體下載網站。" },
+                            { title: "Calibre Portable", url: "https://calibre-ebook.com/download_portable", desc: "電子書管理與轉換工具免安裝版。" },
+                            { title: "ComfyUI", url: "https://comfy.org/download", desc: "基於節點的 Stable Diffusion AI 繪圖介面。" },
+                            { title: "Conda", url: "https://www.anaconda.com/download", desc: "Python 套件與環境管理工具。" },
+                            { title: "LM Studio", url: "https://lmstudio.ai/", desc: "本地端輕鬆執行開源大型語言模型工具。" },
+                            { title: "Git", url: "https://git-scm.com/", desc: "分佈式版本控制系統。" },
+                            { title: "Python", url: "https://www.python.org/downloads/windows/", desc: "Python 程式語言 Windows 下載安裝。" }
+                        ]
+                    },
+                    {
+                        name: "功能網站",
+                        items: [
+                            { title: "nya.je", url: "https://ddns.kicya.net/", desc: "註冊短域名" },
+                            { title: "GitHub", url: "https://github.com/", desc: "從第一行程式碼到最終部署, GitHub 提供人工智慧和自動化工具,幫助您更快地建置和發布更好的軟體。" },
+                            { title: "Vercel", url: "https://vercel.com/", desc: "代理基礎設施並在上建立代理 · 立即發布從零擴展到數百萬的應用程式 · 託管服務平台..." },
+                            { title: "Cloudflare", url: "https://dash.cloudflare.com/", desc: "用google acount進入" },
+                            { title: "Ollama", url: "https://ollama.com/", desc: "是一個輕量級的本地大型語言模型（LLM）運行框架，有簡易的對話式使用介面，可透過簡單的命令列或API，就能下載並執行各種熱門開源模型，安裝簡單、佔用資源較低。" }
                         ]
                     }
                 ]
@@ -299,8 +330,9 @@
                     {
                         name: "線上影音平台",
                         items: [
-                            { title: "YouTube", url: "https://www.youtube.com/", desc: "全球最大的影片分享與串流平台，涵蓋豐富全面的各類影音。" },
-                            { title: "bilibili", url: "https://www.bilibili.com/", desc: "知名的在線彈幕視頻網站，擁有絕佳的 ACG 氛圍與多元內容。" }
+                            { title: "Youtube", url: "https://www.youtube.com/", desc: "全球最大的影片分享與串流平台，涵蓋豐富全面的各類影音。" },
+                            { title: "bilibili", url: "https://www.bilibili.com/", desc: "是國內知名的在線視頻彈幕網站，擁有最棒的ACG氛圍，嗶哩嗶哩內容豐富多元，" },
+                            { title: "KVideo", url: "https://kvideo-861.pages.dev/", desc: "視頻聚合平台" }
                         ]
                     }
                 ]
@@ -311,7 +343,7 @@
                     {
                         name: "矽膠情趣藝術",
                         items: [
-                            { title: "KD人形美術館", url: "https://www.youtube.com/@kd-doll", desc: "台灣唯一矽膠人形主題咖啡館的影音頻道，介紹實體與藝術。" },
+                            { title: "KD人形美術館", url: "https://www.youtube.com/@kd-doll", desc: "台灣唯一矽膠人形主題咖啡館" },
                             { title: "KD人形美術館官網", url: "https://kd-doll.com/", desc: "官方網站門戶，獲取最新的實體玩偶主題活動與詳細情報。" }
                         ]
                     }
@@ -430,7 +462,6 @@
             container.innerHTML = html;
         }
 
-        // 初始化
         switchTab('creation');
     </script>
 </body>
