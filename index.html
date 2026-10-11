@@ -265,7 +265,7 @@
                     {
                         name: "網上 AI 助理",
                         items: [
-                            { title: "GROK", url: "https://grok.com/", desc: "是由 SpaceXAI 開發的 AI 助理。聊天、創作圖片、撰寫程式碼，並從網路和 X 獲得即時答案。" },
+                            { title: "GROK", url: "https://grok.com/", desc: "是由 SpaceXAI 開發的 AI 助理。聊天,創作圖片,撰寫程式碼，並從網路和 X 獲得即時答案。" },
                             { title: "Muse", url: "https://www.muse.com/l", desc: "專注於多模態與高效率創作的智能 AI 工具。" },
                             { title: "Google AI", url: "https://www.google.com", desc: "Google 旗下的前沿人工智慧研究成果與搜尋整合門戶。" },
                             { title: "Gemini", url: "https://gemini.google.com/", desc: "Google 的 AI 助理。獲得寫作,規劃,腦力激盪等協助。體驗生成式人工智慧的力量。" },
@@ -403,8 +403,8 @@
 
                 html += `
                     <div class="mb-8 section-group" data-category="${sectionTitle}">
-                        <h3 class="text-base font-semibold text-gray-300 mb-4 flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                        <h3 class="text-base font-semibold text-amber-400 mb-4 flex items-center space-x-2">
+                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
                             <span>${sectionTitle}</span>
                         </h3>
                         <div class="card-grid">
@@ -442,14 +442,14 @@
                             <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="bg-[#111827] border border-gray-800 rounded-xl p-5 card-hover flex flex-col justify-between group block">
                                 <div>
                                     <div class="flex items-center justify-between mb-2">
-                                        <h4 class="font-bold text-base text-gray-100 group-hover:text-blue-400 transition-colors">${item.title}</h4>
-                                        <span class="text-xs text-gray-500 group-hover:text-blue-400 transition-colors">↗</span>
+                                        <h4 class="font-bold text-base text-gray-100 group-hover:text-amber-400 transition-colors">${item.title}</h4>
+                                        <span class="text-xs text-gray-500 group-hover:text-amber-400 transition-colors">↗</span>
                                     </div>
                                     <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">${item.desc}</p>
                                 </div>
                                 <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-[11px] text-gray-500 font-mono">
                                     <span class="truncate max-w-[180px]">${item.url}</span>
-                                    <span class="text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">訪問</span>
+                                    <span class="text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity">訪問</span>
                                 </div>
                             </a>
                         `;
