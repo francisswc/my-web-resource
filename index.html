@@ -138,6 +138,14 @@
                     <span class="text-base">🧠</span>
                     <span>AI</span>
                 </button>
+                <button onclick="switchTab('phone')" id="btn-phone" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
+                    <span class="text-base">📱</span>
+                    <span>行動電話</span>
+                </button>
+                <button onclick="switchTab('shopping')" id="btn-shopping" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
+                    <span class="text-base">🛒</span>
+                    <span>購物</span>
+                </button>
                 <button onclick="switchTab('software')" id="btn-software" class="sidebar-btn flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-800/50 transition-all text-left w-full">
                     <span class="text-base">🛠️</span>
                     <span>軟件</span>
@@ -266,6 +274,10 @@
                 title: "🎨 動漫",
                 sections: [
                     {
+                        category: "出版社",
+                        items: []
+                    },
+                    {
                         category: "閱讀網站",
                         items: [
                             { title: "看漫畫", url: "https://m.manhuagui.com/", desc: "線上漫畫閱讀與追番平台。" }
@@ -337,11 +349,63 @@
                         ]
                     },
                     {
-                        name: "創意媒體",
+                        name: "AI-影片創作",
+                        items: []
+                    },
+                    {
+                        name: "AI-相片創作",
                         items: [
-                            { title: "AI-影片創作", url: "", desc: "預留空白卡片，探索 AI 影片生成與剪輯應用。", status: "empty" },
-                            { title: "AI-相片創作", url: "", desc: "預留空白卡片，探索 AI 圖像生成與修圖技術。", status: "empty" },
-                            { title: "AI-文章創作", url: "", desc: "預留空白卡片，探索 AI 文字創作與自動化寫作。", status: "empty" }
+                            { title: "Z-Image AI", url: "https://www.z-image-ai.io/tw/", desc: "描述您的創意，見證 Z-Image-Turbo 在毫秒間將其轉化為驚豔的照片級寫實畫面" }
+                        ]
+                    },
+                    {
+                        name: "AI-文章創作",
+                        items: []
+                    }
+                ]
+            },
+            phone: {
+                title: "📱 行動電話",
+                sections: [
+                    {
+                        name: "電訊公司",
+                        items: [
+                            { title: "CSL", url: "https://www.hkcsl.com/", desc: "提供 5G 服務、本地數據月費計劃、漫遊及預付卡等電訊服務。" },
+                            { title: "中國移動", url: "https://www.hk.chinamobile.com/tc/home", desc: "香港是全球最多客戶選用的流動網絡電訊公司，亦是本地首家發展5.5G及5G技術的網絡供應商" },
+                            { title: "中國聯通", url: "https://www.cuniq.com/global/personal", desc: "提供4G / 5G數據卡、數據漫遊、數據共享、上網卡、電話儲值卡、旅遊卡、電話月費計劃等優惠。" },
+                            { title: "3香港", url: "https://www.three.com.hk/tc/home.html", desc: "和記電話有限公司 - 提供多元化的3香港官方網站電訊及數碼服務" }
+                        ]
+                    },
+                    {
+                        name: "SIM CARD",
+                        items: [
+                            { title: "Lucky Sim", url: "https://www.luckysim.com.hk/", desc: "提供多款香港本地、年卡、月費計劃及外遊數據卡，租用 csl. 4G 網絡。" }
+                        ]
+                    }
+                ]
+            },
+            shopping: {
+                title: "🛒 購物",
+                sections: [
+                    {
+                        name: "電器",
+                        items: [
+                            { title: "豐澤 Fortress", url: "https://www.fortress.com.hk/zh-hk/", desc: "提供超過24,000件人氣電子產品，包括智能手機、電腦、家庭及廚房電器、視聽娛樂、健康美容、生活時尚等資訊及優惠推廣。" },
+                            { title: "百老滙 Broadway", url: "https://www.broadwaylifestyle.com/", desc: "與香港蘇寧同為香港第二大電器連鎖店。" },
+                            { title: "香港蘇寧", url: "https://www.hksuning.com/", desc: "蘇寧易購旗下在香港的一間大型電器零售連鎖店。" },
+                            { title: "京東香港", url: "https://hk.jd.com/", desc: "京東旗下面向香港地區的購物與物流服務平台。" }
+                        ]
+                    },
+                    {
+                        name: "生活百貸",
+                        items: [
+                            { title: "HKTVmall", url: "https://www.hktvmall.com/", desc: "HKTVmall 香港最大網購平台" },
+                            { title: "大生生活超市", url: "https://www.dsgroceries.com/", desc: "主要銷售從世界各地進口多樣化的產品" },
+                            { title: "百佳超級市場", url: "https://www.pns.hk/zh-hk/", desc: "主打品牌為百佳超級市場，旗下另有Taste、fusion、GREAT FOOD HALL及FOOD PARC等高端或特色品牌。" },
+                            { title: "惠康超級市場", url: "https://www.wellcome.com.hk/", desc: "是香港最大型及歷史最悠久的連鎖超級市場" },
+                            { title: "7-Eleven", url: "https://www.7-eleven.com.hk/", desc: "便利店與日常快遞服務網" },
+                            { title: "淘竇", url: "https://www.taobao.com/", desc: "淘寶網線上購物平台" },
+                            { title: "Carousell", url: "https://www.carousell.com.hk/", desc: "清理閒置物品、出售賺錢，或尋找超值優惠和值得信賴的服務。" }
                         ]
                     }
                 ]
@@ -426,7 +490,8 @@
                         name: "APP / Software",
                         items: [
                             { title: "Potplayer", url: "https://potplayer.tv/?lang=zh_TW", desc: "Potplayer 影音播放器官網下載。" },
-                            { title: "Foobar2000", url: "https://www.foobar2000.org/", desc: "是一款先進的免費音訊播放器。" }
+                            { title: "Foobar2000", url: "https://www.foobar2000.org/", desc: "是一款先進的免費音訊播放器。" },
+                            { title: "LX Music 洛雪音樂", url: "https://lxmusic.toside.cn/download", desc: "一個免費&開源的音樂查找工具" }
                         ]
                     }
                 ]
@@ -525,51 +590,65 @@
                         <div class="card-grid">
                 `;
 
-                section.items.forEach(item => {
-                    if (item.status === 'dev') {
-                        html += `
-                            <div class="bg-gray-900/40 border-2 border-dashed border-gray-700 rounded-xl p-5 flex flex-col justify-between">
-                                <div>
-                                    <div class="flex items-center justify-between mb-2">
-                                        <h4 class="font-bold text-base text-gray-200">${item.title}</h4>
-                                        <span class="px-2 py-0.5 rounded text-[10px] bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">項目開發中</span>
-                                    </div>
-                                    <p class="text-xs text-gray-400 leading-relaxed">${item.desc}</p>
+                if (section.items.length === 0) {
+                    html += `
+                        <div class="bg-gray-900/40 border-2 border-dashed border-gray-700 rounded-xl p-5 flex flex-col justify-between opacity-80 col-span-full">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="font-bold text-base text-gray-400">暫無內容</h4>
+                                    <span class="px-2 py-0.5 rounded text-[10px] bg-gray-800 text-gray-400 border border-gray-700">敬請期待</span>
                                 </div>
-                                <div class="mt-4 pt-3 border-t border-gray-800 text-[11px] text-gray-500 italic">準備建置中</div>
+                                <p class="text-xs text-gray-500 leading-relaxed">此分類目前暫無收錄網站資源。</p>
                             </div>
-                        `;
-                    } else if (item.status === 'empty') {
-                        html += `
-                            <div class="bg-gray-900/40 border-2 border-dashed border-gray-700 rounded-xl p-5 flex flex-col justify-between opacity-80">
-                                <div>
-                                    <div class="flex items-center justify-between mb-2">
-                                        <h4 class="font-bold text-base text-gray-400">${item.title}</h4>
-                                        <span class="px-2 py-0.5 rounded text-[10px] bg-gray-800 text-gray-400 border border-gray-700">暫無內容</span>
+                        </div>
+                    `;
+                } else {
+                    section.items.forEach(item => {
+                        if (item.status === 'dev') {
+                            html += `
+                                <div class="bg-gray-900/40 border-2 border-dashed border-gray-700 rounded-xl p-5 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h4 class="font-bold text-base text-gray-200">${item.title}</h4>
+                                            <span class="px-2 py-0.5 rounded text-[10px] bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">項目開發中</span>
+                                        </div>
+                                        <p class="text-xs text-gray-400 leading-relaxed">${item.desc}</p>
                                     </div>
-                                    <p class="text-xs text-gray-500 leading-relaxed">${item.desc}</p>
+                                    <div class="mt-4 pt-3 border-t border-gray-800 text-[11px] text-gray-500 italic">準備建置中</div>
                                 </div>
-                                <div class="mt-4 pt-3 border-t border-gray-800 text-[11px] text-gray-600">敬請期待</div>
-                            </div>
-                        `;
-                    } else {
-                        html += `
-                            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="bg-[#111827] border border-gray-800 rounded-xl p-5 card-hover flex flex-col justify-between group block">
-                                <div>
-                                    <div class="flex items-center justify-between mb-2">
-                                        <h4 class="font-bold text-base text-gray-100 group-hover:text-amber-400 transition-colors">${item.title}</h4>
-                                        <span class="text-xs text-gray-500 group-hover:text-amber-400 transition-colors">↗</span>
+                            `;
+                        } else if (item.status === 'empty') {
+                            html += `
+                                <div class="bg-gray-900/40 border-2 border-dashed border-gray-700 rounded-xl p-5 flex flex-col justify-between opacity-80">
+                                    <div>
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h4 class="font-bold text-base text-gray-400">${item.title}</h4>
+                                            <span class="px-2 py-0.5 rounded text-[10px] bg-gray-800 text-gray-400 border border-gray-700">暫無內容</span>
+                                        </div>
+                                        <p class="text-xs text-gray-500 leading-relaxed">${item.desc}</p>
                                     </div>
-                                    <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">${item.desc}</p>
+                                    <div class="mt-4 pt-3 border-t border-gray-800 text-[11px] text-gray-600">敬請期待</div>
                                 </div>
-                                <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-[11px] text-gray-500 font-mono">
-                                    <span class="truncate max-w-[180px]">${item.url}</span>
-                                    <span class="text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity">訪問</span>
-                                </div>
-                            </a>
-                        `;
-                    }
-                });
+                            `;
+                        } else {
+                            html += `
+                                <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="bg-[#111827] border border-gray-800 rounded-xl p-5 card-hover flex flex-col justify-between group block">
+                                    <div>
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h4 class="font-bold text-base text-gray-100 group-hover:text-amber-400 transition-colors">${item.title}</h4>
+                                            <span class="text-xs text-gray-500 group-hover:text-amber-400 transition-colors">↗</span>
+                                        </div>
+                                        <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">${item.desc}</p>
+                                    </div>
+                                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-[11px] text-gray-500 font-mono">
+                                        <span class="truncate max-w-[180px]">${item.url}</span>
+                                        <span class="text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity">訪問</span>
+                                    </div>
+                                </a>
+                            `;
+                        }
+                    });
+                }
 
                 html += `</div></div>`;
             });
