@@ -97,12 +97,19 @@
 </head>
 <body class="selection:bg-blue-500 selection:text-white">
 
-    <!-- Header 區域 -->
+    <!-- Header 區域：左邊名字｜中間 LOGO (title.jpg)｜右邊時間與天氣 -->
     <header class="h-[80px] border-b border-gray-800 bg-[#0b0f19]/90 backdrop-blur z-50 px-6 flex items-center justify-between shrink-0">
-        <div class="flex items-center space-x-3">
-            <span class="text-2xl select-none" role="img" aria-label="Logo">🫳🌍</span>
+        <!-- 左側：網頁名字 -->
+        <div class="flex items-center">
             <h1 class="text-xl font-bold tracking-wide gradient-text">蕭公子的世界</h1>
         </div>
+
+        <!-- 中間：LOGO 圖片 (title.jpg) -->
+        <div class="flex items-center justify-center">
+            <img src="title.jpg" alt="蕭公子的世界 LOGO" class="h-12 object-contain rounded-lg shadow-md hover:scale-105 transition-transform">
+        </div>
+
+        <!-- 右側：時間與天氣 -->
         <div class="hidden sm:flex items-center space-x-3 bg-gray-900 border border-gray-800 px-4 py-1.5 rounded-full text-xs text-gray-300 shadow-inner">
             <span id="date" class="font-medium">--/--/----</span>
             <span class="text-gray-700">|</span>
@@ -220,6 +227,7 @@
                             { title: "UU看書", url: "https://uukanshu.cc/", desc: "是一家提供免費小說閱讀的網站與TXT全集下載服務。" },
                             { title: "半夏小說", url: "https://www.pinellianovel.com/", desc: "高品質免費小說閱讀站" },
                             { title: "無限小說", url: "https://8book.com/", desc: "最新原創全本免費繈上小說網路文學閱讀分享平台" },
+                            { title: "繁體小說", url: "https://www.novels.com.tw/", desc: "最新章節免費閱讀繁體小說網" },
                             { title: "知軒藏書(副站)", url: "https://www.zxcs.click/", desc: "知軒藏書備用副站資源。" }
                         ]
                     },
